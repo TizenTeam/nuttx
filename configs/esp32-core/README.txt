@@ -180,7 +180,7 @@ Buttons and LEDs
 
   Buttons
   -------
-  There are two buttons labeled Boot and EN.  The EN button is not available
+  There are two buttons labelled Boot and EN.  The EN button is not available
   to software.  It pulls the chip enable line that doubles as a reset line.
 
   The BOOT button is connected to IO0.  On reset it is used as a strapping
@@ -191,7 +191,7 @@ Buttons and LEDs
   LEDs
   ----
   There are several on-board LEDs for that indicate the presence of power
-  and USB activity.  None of these are available for use by sofware.
+  and USB activity.  None of these are available for use by software.
 
 SMP
 ===
@@ -207,7 +207,7 @@ SMP
       CONFIG_SMP_IDLETHREAD_STACKSIZE=3072
 
   Debug Tip:  During debug session, OpenOCD may mysteriously switch from one
-  CPU to another.  This behavior can be eliminated by uncommenting one of the
+  CPU to another.  This behaviour can be eliminated by uncommenting one of the
   following in scripts/esp32.cfg
 
     # Only configure the PRO CPU
@@ -259,11 +259,11 @@ OpenOCD for the ESP32
   to reflect the physical JTAG adapter connected.
 
   NOTE: A copy of this OpenOCD configuration file available in the NuttX
-  source tree at nuttx/config/esp32-core/scripts/esp32.cfg..  It has these
-  modifications:
+  source tree at nuttx/configs/esp32-core/scripts/esp32.cfg .
+  It has these modifications:
 
     - The referenced "set ESP32_RTOS none" line has been uncommented
-    - The "ind interface/ftdi/tumpa.cfg".  This means that you will
+    - The "find interface/ftdi/tumpa.cfg".  This means that you will
       need to specify the interface configuration file on the OpenOCD
       command line.
 
@@ -300,7 +300,7 @@ OpenOCD for the ESP32
   Then start OpenOCD by executing a command like the following.  Here
   I assume that:
 
-    - You did not install OpenOCD; binararies are avalable at
+    - You did not install OpenOCD; binaries are available at
       openocd-esp32/src and interface scripts are in
       openocd-eps32/tcl/interface
     - I select the configuration for the Olimex ARM-USB-OCD
@@ -440,20 +440,15 @@ OpenOCD for the ESP32
   The tool esp-idf uses for flashing is a command line Python tool called
   "esptool.py" which talks to a serial bootloader in ROM.  A version is
   supplied in the esp-idf codebase in components/esptool_py/esptool, the
-  "upstream" for that tool is here:
+  "upstream" for that tool is here and now supports ESP32.
 
-    https://github.com/espressif/esptool/pull/121
-
-  The master branch for esptool.py is currently ESP8266-only (as of 2016-11-14),
-  this PR has the ESP32 support which still needs some final tidying up before
-  it's
-  merged.
-
+    https://github.com/espressif/esptool/
+  
   To FLASH an ELF via the command line is a two step process, something like
   this:
 
-    esptool.py --chip esp32 elf2image --flash_mode dio --flash_size 4MB -o ./nuttx.bin nuttx
-    esptool.py --chip esp32 --port COMx write_flash 0x1000 bootloader.bin 0x4000 partition_table.bin 0x10000 nuttx.bin
+    esptool.py --chip esp32 elf2image --flash_mode dio --flash_size 4MB -o nuttx.out.bin nuttx
+    esptool.py --chip esp32 --port COMx write_flash 0x1000 bootloader.bin 0x4000 partition_table.bin 0x10000 nuttx.out.bin
 
   The first step converts an ELF image into an ESP32-compatible binary
   image format, and the second step flashes it (along with bootloader image and
@@ -469,7 +464,7 @@ OpenOCD for the ESP32
   Secondary Boot Loader / Partition Table
   ---------------------------------------
   See https://github.com/espressif/esp-idf/tree/master/components/bootloader
-  and https://github.com/espressif/esp-idf/tree/master/components/partition_table.
+  and https://github.com/espressif/esp-idf/tree/master/components/partition_table .
 
   Running from IRAM with OpenOCD
   ------------------------------
