@@ -29,3 +29,6 @@ core
 /.project
 /pcode
 /tags
+
+.*#
+*#
