@@ -35,6 +35,7 @@
 kernel?=nuttx
 project=${kernel}
 os?=${kernel}
+machine?=${platform}
 
 base_config?=nsh
 configure?=${os_dir}/tools/configure.sh
@@ -56,7 +57,7 @@ configure?=${os_dir}/tools/configure.sh
 config?=${os_dir}/.config
 image?=${project}
 elf_image?=${image}
-deploy_image?=${image}._deploy.bin
+deploy_image?=${image}
 
 cfg=${build_dir}/configs/${machine_family}/scripts/${machine_family}.cfg
 
