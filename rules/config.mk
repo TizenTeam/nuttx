@@ -36,19 +36,16 @@
 default: rule/default
 	@echo "# $@: $^"
 
-# TODO: Override here if needed:
-platform?=esp32
-base_image_type?=nsh
-
 # Default:
 os?=nuttx
-platform?=qemu
-base_image_type?=tc_64k
+platform?=stm32
+machine?=nucleo-144
+#mfpu?=fpv5-d16
+base_image_type?=f767-netnsh
 
 # TODO: adapt with your usb target if needed for udev (ie: esp32)
 #vendor_id?=0403
 #product_id?=6015
-
 
 # Where to download and install tools or extra files:
 extra_dir?=${HOME}/usr/local/opt/${os}/extra
