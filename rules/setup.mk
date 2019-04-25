@@ -46,7 +46,8 @@ setup/debian:
 	${sudo} apt-get install -y openocd libusb-1.0
 	${sudo} apt-get install -y genromfs time curl
 	${sudo} apt-get install -y texinfo
-	${sudo} apt-get install -y help2man
+	# ESP
+	${sudo} apt-get install -y help2man libtool-bin
 
 setup/ubuntu: setup/debian
 	sync
