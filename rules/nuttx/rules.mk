@@ -64,10 +64,6 @@ ${config}: ${configure} ${defconfig} ${apps_dir}/README.txt
 # rule/%: ${config} prep
 # 	cd ${<D} && PATH=${PATH}:${XPATH} ${MAKE} ${@F}
 
-# #TODO
-# config: ${config}
-# 	ls -l ${config}
-# 	echo 'CONFIG_ESP32CORE_RUN_IRAM=y' >> $<
 
 # menuconfig: ${config}
 # 	${MAKE} -C ${os_dir} $@
@@ -161,3 +157,6 @@ ${config}: ${configure} ${defconfig} ${apps_dir}/README.txt
 # env:
 # 	@echo "image_type=${image_type}"
 
+
+.config: tools/configure.sh configs/${config} ${apps_dir}
+	ls ${@} || { cd ${<D} && ./${<F} -a ${apps_dir} ${config}; }
