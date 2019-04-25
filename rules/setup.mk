@@ -31,6 +31,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 #
 ############################################################################
+sudo?=sudo
 
 setup/%: /etc/os-release
 	@echo "TODO: support other OS"
@@ -45,10 +46,11 @@ setup/debian:
 	${sudo} apt-get install -y openocd libusb-1.0
 	${sudo} apt-get install -y genromfs time curl
 	${sudo} apt-get install -y texinfo
+	${sudo} apt-get install -y help2man
 
 setup/ubuntu: setup/debian
 	sync
 
 setup: /etc/os-release
 	cat $<
-	. ${<} && ls /etc/$${ID}_version && ${make} setup/$${ID}
+	. ${<} && ${make} setup/$${ID}
