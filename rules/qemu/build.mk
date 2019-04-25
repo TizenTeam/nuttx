@@ -20,8 +20,6 @@ default: os/all
 os/%: .config
 	${make} -C ${<D} ${@F}
 
-.config: tools/configure.sh configs/${config} ${apps_dir}
-	ls ${@} || { cd ${<D} && ./${<F} -a ${apps_dir} ${config}; }
 
 config: 
 	${make} menuconfig
