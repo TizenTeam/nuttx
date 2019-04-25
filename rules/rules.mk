@@ -124,6 +124,9 @@ deploy: ${tmp_dir}/rule/done/deploy
 
 run: done/deploy ${platform}/run
 	sync
-
+devel:
+	${make}
+	${make} deploy
+	${make} monitor
 
 .PHONY: rule/configure rule/make
