@@ -348,6 +348,17 @@
 
 /* Alternate function pin selections ************************************************/
 
+
+/* TIM */
+
+#define GPIO_TIM2_CH2OUT GPIO_TIM2_CH2OUT_2
+#define GPIO_TIM2_CH3OUT GPIO_TIM2_CH3OUT_3
+
+#define GPIO_TIM3_CH1OUT GPIO_TIM3_CH1OUT_2
+#define GPIO_TIM3_CH2OUT GPIO_TIM3_CH2OUT_4
+
+#define GPIO_TIM4_CH1OUT GPIO_TIM4_CH1OUT_2
+
 #if defined(CONFIG_NUCLEO_CONSOLE_ARDUINO)
 /* USART6:
  *

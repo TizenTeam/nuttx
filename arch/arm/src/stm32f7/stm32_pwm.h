@@ -127,10 +127,11 @@
     defined(CONFIG_STM32F7_TIM15_PWM) || defined(CONFIG_STM32F7_TIM16_PWM) || \
     defined(CONFIG_STM32F7_TIM17_PWM)
 
+
 #include <arch/board/board.h>
 #include "chip/stm32_tim.h"
 
-#ifdef CONFIG_PWM_MULTICHAN
+#if 1 // def CONFIG_PWM_MULTICHAN //TODO kconfig
 
 #ifdef CONFIG_STM32F7_TIM1_CHANNEL1
 #  ifdef CONFIG_STM32F7_TIM1_CH1OUT
@@ -240,7 +241,7 @@
 #endif
 #ifdef CONFIG_STM32F7_TIM3_CHANNEL3
 #  ifdef CONFIG_STM32F7_TIM3_CH3OUT
-#    define PWM_TIM3_CH3CFG GPIO_TIM3_CH3OUT
+#    define PWM_TIM3_CH3CFG GPIO_TIM3_CH3OUT_1
 #  else
 #    define PWM_TIM3_CH3CFG 0
 #  endif
@@ -283,7 +284,7 @@
 #endif
 #ifdef CONFIG_STM32F7_TIM4_CHANNEL3
 #  ifdef CONFIG_STM32F7_TIM4_CH3OUT
-#    define PWM_TIM4_CH3CFG GPIO_TIM4_CH3OUT
+#    define PWM_TIM4_CH3CFG GPIO_TIM4_CH3OUT_1
 #  else
 #    define PWM_TIM4_CH3CFG 0
 #  endif
@@ -293,7 +294,7 @@
 #endif
 #ifdef CONFIG_STM32F7_TIM4_CHANNEL4
 #  ifdef CONFIG_STM32F7_TIM4_CH4OUT
-#    define PWM_TIM4_CH4CFG GPIO_TIM4_CH4OUT
+#    define PWM_TIM4_CH4CFG GPIO_TIM4_CH4OUT_1
 #  else
 #    define PWM_TIM4_CH4CFG 0
 #  endif
@@ -1066,6 +1067,7 @@
 /****************************************************************************
  * Public Data
  ****************************************************************************/
+
 
 #ifndef __ASSEMBLY__
 
