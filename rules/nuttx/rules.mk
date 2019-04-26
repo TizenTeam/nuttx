@@ -42,15 +42,20 @@ ${apps_dir}:
 ${apps_dir}/%: ${apps_dir}
 	ls -l $@
 
-${config}: configure
+
+
+${config}: nuttx/configure
 	ls $@
 
-configure: ${configure} ${defconfig} ${apps_dir}/README.txt
+nuttx/configure: ${configure} ${defconfig} ${apps_dir}/README.txt
 	@echo "log: Is ${@} existing?"
 	-ls -l ${config}
 	@echo "# Configure: ${config_type}"
 	cd ${<D} && ./${<F} -a ${apps_dir} ${config_type}
 	ls -l "${config}"
+
+configure: nuttx/configure
+
 
 ${CURDIR}/.config: ${config}
 	echo "TODO
