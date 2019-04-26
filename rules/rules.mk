@@ -87,8 +87,8 @@ apps_dir: ${apps_dir}
 #rule/configure: ${config}
 #	ls -l ${config}
 
-${os_dir}/Make.defs:
-	ls $@ || ${make} rule/configure
+#${os_dir}/Make.defs:
+#	ls $@ || ${make} rule/configure
 
 rule/prep: ${prep_files}
 	ls $<
