@@ -1,12 +1,13 @@
-os_dir?=..
-
+os_dir?=${CURDIR}/..
 
 local/default: all
 	ls
 
-%: ${CURDIR}/index.mk ${os_dir}
-	make -C ${os_dir} -f $< $@
+%: ${os_dir}/rules/index.mk
+	cd ${os_dir} && make -f $< $@
 
+${os_dir}/rules/index.mk:
+	ls $@
 clean: ..
 	rm -f ${<}/.config
 
