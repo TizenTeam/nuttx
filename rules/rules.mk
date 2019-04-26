@@ -108,6 +108,12 @@ defconfig: ${defconfig}
 menuconfig: ${os_dir} ${config} 
 	${MAKE} -C $< $@
 
+updatedefconfig: ${os_dir}/defconfig
+	cp -av $< ${defconfig}
+
+reconfigure: updatedefconfig
+	rm -fv ${config}
+	${make} menuconfig
 
 ${platform}/%: rules/${platform}/rules.mk
 	@echo "# $@ can be overidden in $^"
