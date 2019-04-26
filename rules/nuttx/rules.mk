@@ -117,12 +117,11 @@ ${os_dir}/Make.defs: ${os_dir}
 # 	ls $<
 # #
 
-# defconfig: ${defconfig} ${base_defconfig}
-# 	ls -l $^
+defconfig: ${os_dir}/defconfig
+	ls -l $^
 
-# ${defconfig}: ${base_defconfig}
-# 	@mkdir -p ${@D}
-# 	cp -rfv ${<D}/* ${@D}
+${os_dir}/defconfig: ${config}
+	${MAKE} -C ${<D} savedefconfig
 
 
 # commit:
