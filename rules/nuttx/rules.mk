@@ -64,9 +64,9 @@ ${CURDIR}/.config: ${config}
 
 # #TODO
 
-# ${os_dir}/Make.defs: config
-# #	ls $@ || make config
-# 	ls $@
+${os_dir}/Make.defs: ${os_dir}
+	ls $@ || ${make} nuttx/configure
+	ls $@
 
 # prep: ${os_dir}/Make.defs ${CC}
 # 	@echo "# $@: $^"
