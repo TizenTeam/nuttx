@@ -37,9 +37,9 @@ project=${kernel}
 os?=${kernel}
 machine?=${platform}
 
+os_dir?=${CURDIR}
 base_config?=nsh
 configure?=${os_dir}/tools/configure.sh
-os_dir?=${CURDIR}
 build_dir?=${os_dir}
 apps_url?=https://bitbucket.org/nuttx/apps
 apps_dir?=apps
@@ -52,8 +52,6 @@ config_type?=${machine}/${image_type}
 export config_type
 defconfig?=${configs_dir}/${config_type}/defconfig
 
-
-configure?=${os_dir}/tools/configure.sh
 config?=${os_dir}/.config
 image?=${project}
 elf_image?=${image}
