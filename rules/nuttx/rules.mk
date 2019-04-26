@@ -42,10 +42,9 @@ ${apps_dir}:
 ${apps_dir}/%: ${apps_dir}
 	ls -l $@
 
-
-
 ${config}:
 	ls $@ || ${make} nuttx/configure
+	ls $@
 
 nuttx/configure: ${configure} ${defconfig} ${apps_dir}/README.txt
 	@echo "log: Is ${@} existing?"
@@ -55,10 +54,10 @@ nuttx/configure: ${configure} ${defconfig} ${apps_dir}/README.txt
 	ls -l "${config}"
 
 configure: nuttx/configure
-	echo "TODO"
+	echo "TODO: $@: $^"
 
 ${CURDIR}/.config: ${config}
-	echo "TODO"
+	echo "TODO: $@: $^"
 
 # all: ${image} ${config} ${defconfig} ${base_defconfig}
 # 	ls -l $^
