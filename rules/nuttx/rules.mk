@@ -42,12 +42,18 @@ ${apps_dir}:
 ${apps_dir}/%: ${apps_dir}
 	ls -l $@
 
-${config}: ${configure} ${defconfig} ${apps_dir}/README.txt
+${config}: configure
+	ls $@
+
+configure: ${configure} ${defconfig} ${apps_dir}/README.txt
 	@echo "log: Is ${@} existing?"
 	-ls -l ${config}
 	@echo "# Configure: ${config_type}"
 	cd ${<D} && ./${<F} -a ${apps_dir} ${config_type}
-	ls -l "$@"
+	ls -l "${config}"
+
+${CURDIR}/.config: ${config}
+	echo "TODO
 
 # all: ${image} ${config} ${defconfig} ${base_defconfig}
 # 	ls -l $^
@@ -160,3 +166,11 @@ ${config}: ${configure} ${defconfig} ${apps_dir}/README.txt
 
 .config: tools/configure.sh configs/${config} ${apps_dir}
 	ls ${@} || { cd ${<D} && ./${<F} -a ${apps_dir} ${config}; }
+
+
+
+#nuttx/configure: ${configure} ${defconfig}
+#	ls -l $^
+#	cd ${<D} && ./${<F} ${config_type}
+#	ls -l ${config}
+
