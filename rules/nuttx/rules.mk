@@ -44,8 +44,8 @@ ${apps_dir}/%: ${apps_dir}
 
 
 
-${config}: nuttx/configure
-	ls $@
+${config}:
+	ls $@ || ${make} nuttx/configure
 
 nuttx/configure: ${configure} ${defconfig} ${apps_dir}/README.txt
 	@echo "log: Is ${@} existing?"
