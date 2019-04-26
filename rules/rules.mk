@@ -84,8 +84,8 @@ apps_dir: ${apps_dir}
 #	cd ${<D} && ./${<F} ${config_type}
 #	ls -l ${config}
 
-rule/configure: ${config}
-	ls -l ${config}
+#rule/configure: ${config}
+#	ls -l ${config}
 
 ${os_dir}/Make.defs:
 	ls $@ || ${make} rule/configure
