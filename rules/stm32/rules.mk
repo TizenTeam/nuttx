@@ -7,7 +7,7 @@ nuttx_deploy_dir?=/media/${USER}/NODE_F767ZI1
 nuttx_dur?=.
 nuttx_image_file?=nuttx.bin
 monitor_rate?=115200
-monitor_file?=/dev/ttyACM1
+monitor_file?=$(shell ls /dev/ttyACM* | sort | tail -n1)
 
 stm32/setup/debian:
 	sudo apt-get install -y stlink-tools
