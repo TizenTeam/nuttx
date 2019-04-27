@@ -338,7 +338,7 @@ int stm32l4_can_setup(void);
 #endif
 
 /************************************************************************************
- * Name: stm32l4_pwm_setup
+ * Name: stm32_pwm_setup
  *
  * Description:
  *   Initialize PWM and register the PWM device.
