@@ -95,7 +95,7 @@ int stm32_pwm_setup(void)
           return -ENODEV;
         }
 
-      ret = pwm_register("/dev/pwm0", pwm);
+      ret = pwm_register("/dev/pwm1", pwm);
       if (ret < 0)
         {
           aerr("ERROR: pwm_register failed: %d\n", ret);
@@ -111,7 +111,7 @@ int stm32_pwm_setup(void)
           return -ENODEV;
         }
 
-      ret = pwm_register("/dev/pwm1", pwm);
+      ret = pwm_register("/dev/pwm2", pwm);
       if (ret < 0)
         {
           aerr("ERROR: pwm_register failed: %d\n", ret);
@@ -127,7 +127,7 @@ int stm32_pwm_setup(void)
           return -ENODEV;
         }
 
-      ret = pwm_register("/dev/pwm2", pwm);
+      ret = pwm_register("/dev/pwm3", pwm);
       if (ret < 0)
         {
           aerr("ERROR: pwm_register failed: %d\n", ret);
@@ -143,7 +143,7 @@ int stm32_pwm_setup(void)
           return -ENODEV;
         }
 
-      ret = pwm_register("/dev/pwm3", pwm);
+      ret = pwm_register("/dev/pwm4", pwm);
       if (ret < 0)
         {
           aerr("ERROR: pwm_register failed: %d\n", ret);
